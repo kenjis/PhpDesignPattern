@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\TemplateMethod\AbstractClass;
 
 /**
@@ -13,12 +16,13 @@ abstract class AbstractDisplay
 
     /**
      * コンストラクタ
+     *
      * @param mixed 表示するデータ
      */
     public function __construct($data)
     {
-        if (!is_array($data)) {
-            $data = array($data);
+        if (! is_array($data)) {
+            $data = [$data];
         }
         $this->data = $data;
     }
@@ -26,7 +30,7 @@ abstract class AbstractDisplay
     /**
      * template methodに相当する
      */
-    public function display()
+    public function display() : void
     {
         $this->displayHeader();
         $this->displayBody();

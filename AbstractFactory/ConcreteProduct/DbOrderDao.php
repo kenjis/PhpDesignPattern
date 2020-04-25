@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\AbstractFactory\ConcreteProduct;
 
 use DoYouPhp\PhpDesignPattern\AbstractFactory\AbstractProduct\ItemDao;
@@ -8,16 +11,17 @@ use DoYouPhp\PhpDesignPattern\AbstractFactory\Model\Order;
 class DbOrderDao implements OrderDao
 {
     private $orders;
+
     public function __construct(ItemDao $item_dao)
     {
-        $fp = fopen(dirname(__DIR__).'/order_data.txt', 'r');
+        $fp = fopen(dirname(__DIR__) . '/order_data.txt', 'r');
 
         /**
          * ヘッダ行を抜く
          */
         $dummy = fgets($fp, 4096);
 
-        $this->orders = array();
+        $this->orders = [];
         while (($buffer = fgets($fp, 4096)) !== false) {
             $data = explode("\t", trim($buffer));
             if (count($data) !== 2) {
@@ -28,7 +32,7 @@ class DbOrderDao implements OrderDao
             $order = new Order($order_id);
             foreach (explode(',', $item_ids) as $item_id) {
                 $item = $item_dao->findById($item_id);
-                if (!is_null($item)) {
+                if ($item !== null) {
                     $order->addItem($item);
                 }
             }
@@ -42,8 +46,6 @@ class DbOrderDao implements OrderDao
     {
         if (array_key_exists($order_id, $this->orders)) {
             return $this->orders[$order_id];
-        } else {
-            return;
         }
     }
 }

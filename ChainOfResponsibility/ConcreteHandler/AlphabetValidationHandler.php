@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\ChainOfResponsibility\ConcreteHandler;
 
 use DoYouPhp\PhpDesignPattern\ChainOfResponsibility\Handler\ValidationHandler;

@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Proxy\Proxy;
 
 use DoYouPhp\PhpDesignPattern\Proxy\Subject\ItemDao;
@@ -7,15 +10,17 @@ class ItemDaoProxy
 {
     private $dao;
     private $cache;
+
     public function __construct(ItemDao $dao)
     {
         $this->dao = $dao;
-        $this->cache = array();
+        $this->cache = [];
     }
+
     public function findById($item_id)
     {
         if (array_key_exists($item_id, $this->cache)) {
-            echo 'Proxyで保持しているキャッシュからデータを返します'.PHP_EOL;
+            echo 'Proxyで保持しているキャッシュからデータを返します' . PHP_EOL;
 
             return $this->cache[$item_id];
         }

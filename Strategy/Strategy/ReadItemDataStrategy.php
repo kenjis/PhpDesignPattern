@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Strategy\Strategy;
 
 /**
@@ -19,13 +22,15 @@ abstract class ReadItemDataStrategy
     /**
      * データファイルを読み込み、オブジェクトの配列で返す
      * Contextに提供するメソッド
+     *
      * @param string データファイル名
+     *
      * @return データオブジェクトの配列
      */
     public function getData()
     {
-        if (!is_readable($this->getFilename())) {
-            throw new \Exception('file ['.$this->getFilename().'] is not readable !');
+        if (! is_readable($this->getFilename())) {
+            throw new \Exception('file [' . $this->getFilename() . '] is not readable !');
         }
 
         return $this->readData($this->getFilename());
@@ -33,6 +38,7 @@ abstract class ReadItemDataStrategy
 
     /**
      * ファイル名を返す
+     *
      * @return ファイル名
      */
     public function getFilename()
@@ -42,7 +48,9 @@ abstract class ReadItemDataStrategy
 
     /**
      * ConcreteStrategyクラスに実装させるメソッド
+     *
      * @param string データファイル名
+     *
      * @return データオブジェクトの配列
      */
     abstract protected function readData($filename);

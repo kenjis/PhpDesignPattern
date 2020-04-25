@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Decorator\Component;
 
 /**
@@ -7,5 +10,6 @@ namespace DoYouPhp\PhpDesignPattern\Decorator\Component;
 interface Text
 {
     public function getText();
+
     public function setText($str);
 }

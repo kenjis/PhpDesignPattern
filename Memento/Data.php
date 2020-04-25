@@ -1,7 +1,8 @@
 <?php
-namespace DoYouPhp\PhpDesignPattern\Memento;
 
-use DoYouPhp\PhpDesignPattern\Memento\DataSnapshot;
+declare(strict_types=1);
+
+namespace DoYouPhp\PhpDesignPattern\Memento;
 
 /**
  * Originatorに相当する
@@ -15,7 +16,7 @@ final class Data extends DataSnapshot
      */
     public function __construct()
     {
-        $this->comment = array();
+        $this->comment = [];
     }
 
     /**
@@ -29,12 +30,12 @@ final class Data extends DataSnapshot
     /**
      * Mementoから復元する
      */
-    public function restoreSnapshot(DataSnapshot $snapshot)
+    public function restoreSnapshot(DataSnapshot $snapshot) : void
     {
         $this->comment = $snapshot->getComment();
     }
 
-    public function addComment($comment)
+    public function addComment($comment) : void
     {
         $this->comment[] = $comment;
     }

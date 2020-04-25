@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\AbstractFactory\Model;
 
 /**
@@ -8,24 +11,28 @@ class Order
 {
     private $id;
     private $items;
+
     public function __construct($id)
     {
         $this->id = $id;
-        $this->items = array();
+        $this->items = [];
     }
-    public function addItem(Item $item)
+
+    public function addItem(Item $item) : void
     {
         $id = $item->getId();
-        if (!array_key_exists($id, $this->items)) {
+        if (! array_key_exists($id, $this->items)) {
             $this->items[$id]['object'] = $item;
             $this->items[$id]['amount'] = 0;
         }
         $this->items[$id]['amount']++;
     }
+
     public function getItems()
     {
         return $this->items;
     }
+
     public function getId()
     {
         return $this->id;

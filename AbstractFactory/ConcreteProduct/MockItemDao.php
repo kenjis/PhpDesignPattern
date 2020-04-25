@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\AbstractFactory\ConcreteProduct;
 
 use DoYouPhp\PhpDesignPattern\AbstractFactory\AbstractProduct\ItemDao;

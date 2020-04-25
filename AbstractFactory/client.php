@@ -1,13 +1,16 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\AbstractFactory;
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use DoYouPhp\PhpDesignPattern\AbstractFactory\AbstractFactory\DaoFactory;
 use DoYouPhp\PhpDesignPattern\AbstractFactory\ConcreteFactory\DbFactory;
 use DoYouPhp\PhpDesignPattern\AbstractFactory\ConcreteFactory\MockFactory;
 
-function show(DaoFactory $factory)
+function show(DaoFactory $factory) : void
 {
     $item_id = 1;
     $item_dao = $factory->createItemDao();

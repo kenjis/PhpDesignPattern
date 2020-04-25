@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Prototype\ConcretePrototype;
 
 use DoYouPhp\PhpDesignPattern\Prototype\Prototype\ItemPrototype;

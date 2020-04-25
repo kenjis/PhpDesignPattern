@@ -1,8 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Singleton\Singleton;
 
-class SingletonSample {
-
+class SingletonSample
+{
     /**
      * メンバー変数
      */
@@ -17,17 +20,30 @@ class SingletonSample {
      * コンストラクタ
      * IDとして、生成日時のハッシュ値を作成
      */
-    private function __construct() {
+    private function __construct()
+    {
         $this->id = md5(date('r') . mt_rand());
     }
 
     /**
+     * このインスタンスの複製を許可しないようにする
+     *
+     * @throws \RuntimeException
+     */
+    final public function __clone()
+    {
+        throw new \RuntimeException('Clone is not allowed against ' . get_class($this));
+    }
+
+    /**
      * 唯一のインスタンスを返すためのメソッド
+     *
      * @return SingletonSampleインスタンス
      */
-    public static function getInstance() {
-        if (!isset(self::$instance)) {
-            self::$instance = new SingletonSample();
+    public static function getInstance()
+    {
+        if (! isset(self::$instance)) {
+            self::$instance = new self();
             echo 'a SingletonSample instance was created !';
         }
 
@@ -36,17 +52,11 @@ class SingletonSample {
 
     /**
      * IDを返す
+     *
      * @return インスタンスのID
      */
-    public function getID() {
+    public function getID()
+    {
         return $this->id;
-    }
-
-    /**
-     * このインスタンスの複製を許可しないようにする
-     * @throws \RuntimeException
-     */
-    public final function __clone() {
-        throw new \RuntimeException ('Clone is not allowed against ' . get_class($this));
     }
 }

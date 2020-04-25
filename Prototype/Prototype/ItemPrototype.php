@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Prototype\Prototype;
 
 /**
@@ -18,6 +21,12 @@ abstract class ItemPrototype
         $this->price = $price;
     }
 
+    /**
+     * protectedメソッドにする事で、外部から直接cloneされない
+     * ようにしている
+     */
+    abstract protected function __clone();
+
     public function getCode()
     {
         return $this->item_code;
@@ -33,7 +42,7 @@ abstract class ItemPrototype
         return $this->price;
     }
 
-    public function setDetail(\stdClass $detail)
+    public function setDetail(\stdClass $detail) : void
     {
         $this->detail = $detail;
     }
@@ -43,12 +52,12 @@ abstract class ItemPrototype
         return $this->detail;
     }
 
-    public function dumpData()
+    public function dumpData() : void
     {
-        echo $this->getName().PHP_EOL;
-        echo '商品番号：'.$this->getCode().PHP_EOL;
-        echo '\\'.number_format($this->getPrice()).PHP_EOL;
-        echo $this->detail->comment.PHP_EOL;
+        echo $this->getName() . PHP_EOL;
+        echo '商品番号：' . $this->getCode() . PHP_EOL;
+        echo '\\' . number_format($this->getPrice()) . PHP_EOL;
+        echo $this->detail->comment . PHP_EOL;
     }
 
     /**
@@ -60,10 +69,4 @@ abstract class ItemPrototype
 
         return $new_instance;
     }
-
-    /**
-     * protectedメソッドにする事で、外部から直接cloneされない
-     * ようにしている
-     */
-    abstract protected function __clone();
 }

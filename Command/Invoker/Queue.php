@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Command\Invoker;
 
 use DoYouPhp\PhpDesignPattern\Command\Command\Command;
@@ -10,19 +13,21 @@ class Queue
 {
     private $commands;
     private $current_index;
+
     public function __construct()
     {
-        $this->commands = array();
+        $this->commands = [];
         $this->current_index = 0;
     }
-    public function addCommand(Command $command)
+
+    public function addCommand(Command $command) : void
     {
         $this->commands[] = $command;
     }
 
-    public function run()
+    public function run() : void
     {
-        while (!is_null($command = $this->next())) {
+        while (($command = $this->next()) !== null) {
             $command->execute();
         }
     }
@@ -32,8 +37,8 @@ class Queue
         if (count($this->commands) === 0 ||
             count($this->commands) <= $this->current_index) {
             return;
-        } else {
-            return $this->commands[$this->current_index++];
         }
+
+        return $this->commands[$this->current_index++];
     }
 }

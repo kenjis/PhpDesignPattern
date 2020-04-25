@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Visitor\Element;
 
 use DoYouPhp\PhpDesignPattern\Visitor\Visitor\Visitor;
@@ -31,7 +34,7 @@ abstract class OrganizationEntry
      * 子要素を追加する
      * ここでは抽象メソッドとして用意
      */
-    abstract public function add(OrganizationEntry $entry);
+    abstract public function add(self $entry);
 
     /**
      * 子要素を取得する
@@ -43,7 +46,7 @@ abstract class OrganizationEntry
      * 組織ツリーを表示する
      * サンプルでは、デフォルトの実装を用意
      */
-    public function accept(Visitor $visitor)
+    public function accept(Visitor $visitor) : void
     {
         $visitor->visit($this);
     }

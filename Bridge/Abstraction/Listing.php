@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Bridge\Abstraction;
 
 use DoYouPhp\PhpDesignPattern\Bridge\Implementor\DataSource;
@@ -9,7 +12,6 @@ class Listing
 
     /**
      * コンストラクタ
-     * @param $source_name ファイル名
      */
     public function __construct(DataSource $data_source)
     {
@@ -19,13 +21,14 @@ class Listing
     /**
      * データソースを開く
      */
-    public function open()
+    public function open() : void
     {
         $this->data_source->open();
     }
 
     /**
      * データソースからデータを取得する
+     *
      * @return array データの配列
      */
     public function read()
@@ -36,7 +39,7 @@ class Listing
     /**
      * データソースを閉じる
      */
-    public function close()
+    public function close() : void
     {
         $this->data_source->close();
     }

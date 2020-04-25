@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\ChainOfResponsibility\ConcreteHandler;
 
 use DoYouPhp\PhpDesignPattern\ChainOfResponsibility\Handler\ValidationHandler;
@@ -24,7 +27,7 @@ class MaxLengthValidationHandler extends ValidationHandler
      */
     protected function execValidation($input)
     {
-        return (strlen($input) <= $this->max_length);
+        return strlen($input) <= $this->max_length;
     }
 
     /**
@@ -32,6 +35,6 @@ class MaxLengthValidationHandler extends ValidationHandler
      */
     protected function getErrorMessage()
     {
-        return $this->max_length.'バイト以内で入力してください';
+        return $this->max_length . 'バイト以内で入力してください';
     }
 }

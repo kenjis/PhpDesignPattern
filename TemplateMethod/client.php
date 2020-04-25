@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\TemplateMethod;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
@@ -6,11 +9,10 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 use DoYouPhp\PhpDesignPattern\TemplateMethod\ConcreteClass\ListDisplay;
 use DoYouPhp\PhpDesignPattern\TemplateMethod\ConcreteClass\TableDisplay;
 
-
-$data = array('Design Pattern',
-              'Gang of Four',
-              'Template Method Sample1',
-              'Template Method Sample2', );
+$data = ['Design Pattern',
+    'Gang of Four',
+    'Template Method Sample1',
+    'Template Method Sample2', ];
 
 $display = new ListDisplay($data);
 $display->display();

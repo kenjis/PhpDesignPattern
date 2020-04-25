@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Bridge\RefinedAbstraction;
 
 use DoYouPhp\PhpDesignPattern\Bridge\Abstraction\Listing;
@@ -11,7 +14,6 @@ class ExtendedListing extends Listing
 {
     /**
      * コンストラクタ
-     * @param $source_name ファイル名
      */
     public function __construct($data_source)
     {
@@ -20,6 +22,7 @@ class ExtendedListing extends Listing
 
     /**
      * データを読み込む際、大文字に変換する
+     *
      * @return 変換されたデータ
      */
     public function readWithEncode()

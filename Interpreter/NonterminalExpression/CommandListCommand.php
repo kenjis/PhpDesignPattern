@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Interpreter\NonterminalExpression;
 
 use DoYouPhp\PhpDesignPattern\Interpreter\AbstractExpression\Command;
@@ -7,18 +10,19 @@ use DoYouPhp\PhpDesignPattern\Interpreter\TerminalExpression\CommandCommand;
 
 class CommandListCommand implements Command
 {
-    public function execute(Context $context)
+    public function execute(Context $context) : void
     {
         while (true) {
             $current_command = $context->getCurrentCommand();
-            if (is_null($current_command)) {
+            if ($current_command === null) {
                 throw new \RuntimeException('"end" not found ');
-            } elseif ($current_command === 'end') {
-                break;
-            } else {
-                $command = new CommandCommand();
-                $command->execute($context);
             }
+            if ($current_command === 'end') {
+                break;
+            }
+            $command = new CommandCommand();
+            $command->execute($context);
+
             $context->next();
         }
     }

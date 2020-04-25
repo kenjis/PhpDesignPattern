@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\ChainOfResponsibility\Handler;
 
 /**
@@ -13,7 +16,7 @@ abstract class ValidationHandler
         $this->next_handler = null;
     }
 
-    public function setHandler(ValidationHandler $handler)
+    public function setHandler(self $handler)
     {
         $this->next_handler = $handler;
 
@@ -31,13 +34,14 @@ abstract class ValidationHandler
     public function validate($input)
     {
         $result = $this->execValidation($input);
-        if (!$result) {
+        if (! $result) {
             return $this->getErrorMessage();
-        } elseif (!is_null($this->getNextHandler())) {
-            return $this->getNextHandler()->validate($input);
-        } else {
-            return true;
         }
+        if ($this->getNextHandler() !== null) {
+            return $this->getNextHandler()->validate($input);
+        }
+
+        return true;
     }
 
     /**

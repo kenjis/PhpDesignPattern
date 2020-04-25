@@ -1,7 +1,8 @@
 <?php
-namespace DoYouPhp\PhpDesignPattern\Iterator\ConcreteIterator;
 
-use DoYouPhp\PhpDesignPattern\Iterator\Model\Employee;
+declare(strict_types=1);
+
+namespace DoYouPhp\PhpDesignPattern\Iterator\ConcreteIterator;
 
 class SalesmanIterator extends \FilterIterator
 {
@@ -14,6 +15,6 @@ class SalesmanIterator extends \FilterIterator
     {
         $employee = $this->getInnerIterator()->current();
 
-        return ($employee->getJob() === 'SALESMAN');
+        return $employee->getJob() === 'SALESMAN';
     }
 }

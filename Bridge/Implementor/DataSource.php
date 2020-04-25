@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Bridge\Implementor;
 
 /**
@@ -8,6 +11,8 @@ namespace DoYouPhp\PhpDesignPattern\Bridge\Implementor;
 interface DataSource
 {
     public function open();
+
     public function read();
+
     public function close();
 }

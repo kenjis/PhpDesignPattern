@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Strategy\Context;
 
 use DoYouPhp\PhpDesignPattern\Strategy\Strategy\ReadItemDataStrategy;
@@ -12,6 +15,7 @@ class ItemDataContext
 
     /**
      * コンストラクタ
+     *
      * @param ReadItemDataStrategy ReadItemDataStrategyオブジェクト
      */
     public function __construct(ReadItemDataStrategy $strategy)
@@ -21,6 +25,7 @@ class ItemDataContext
 
     /**
      * 商品情報をオブジェクトの配列で返す
+     *
      * @return データオブジェクトの配列
      */
     public function getItemData()

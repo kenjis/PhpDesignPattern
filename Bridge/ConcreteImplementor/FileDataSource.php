@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Bridge\ConcreteImplementor;
 
 use DoYouPhp\PhpDesignPattern\Bridge\Implementor\DataSource;
@@ -17,6 +20,7 @@ class FileDataSource implements DataSource
 
     /**
      * コンストラクタ
+     *
      * @param $source_name ファイル名
      */
     public function __construct($source_name)
@@ -26,27 +30,29 @@ class FileDataSource implements DataSource
 
     /**
      * データソースを開く
+     *
      * @throws \Exception
      */
-    public function open()
+    public function open() : void
     {
-        if (!is_readable($this->source_name)) {
+        if (! is_readable($this->source_name)) {
             throw new \Exception('データソースが見つかりません');
         }
         $this->handler = fopen($this->source_name, 'r');
-        if (!$this->handler) {
+        if (! $this->handler) {
             throw new \Exception('データソースのオープンに失敗しました');
         }
     }
 
     /**
      * データソースからデータを取得する
+     *
      * @return string データ文字列
      */
     public function read()
     {
-        $buffer = array();
-        while (!feof($this->handler)) {
+        $buffer = [];
+        while (! feof($this->handler)) {
             $buffer[] = fgets($this->handler);
         }
 
@@ -56,9 +62,9 @@ class FileDataSource implements DataSource
     /**
      * データソースを閉じる
      */
-    public function close()
+    public function close() : void
     {
-        if (!is_null($this->handler)) {
+        if ($this->handler !== null) {
             fclose($this->handler);
         }
     }

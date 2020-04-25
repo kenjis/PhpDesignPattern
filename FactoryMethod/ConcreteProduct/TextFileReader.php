@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\FactoryMethod\ConcreteProduct;
 
 use DoYouPhp\PhpDesignPattern\FactoryMethod\Product\Reader;
@@ -10,15 +13,11 @@ class TextFileReader implements Reader
 {
     /**
      * 内容を表示するファイル名
-     *
-     * @access private
      */
     private $filename;
 
     /**
      * データを扱うハンドラ名
-     *
-     * @access private
      */
     private $handler;
 
@@ -26,12 +25,13 @@ class TextFileReader implements Reader
      * コンストラクタ
      *
      * @param string ファイル名
+     *
      * @throws \Exception
      */
     public function __construct($filename)
     {
-        if (!is_readable($filename)) {
-            throw new \Exception('file ['.$filename.'] is not readable !');
+        if (! is_readable($filename)) {
+            throw new \Exception('file [' . $filename . '] is not readable !');
         }
         $this->filename = $filename;
     }
@@ -39,7 +39,7 @@ class TextFileReader implements Reader
     /**
      * 読み込みを行う
      */
-    public function read()
+    public function read() : void
     {
         $this->handler = fopen($this->filename, 'r');
     }
@@ -47,7 +47,7 @@ class TextFileReader implements Reader
     /**
      * 表示を行う
      */
-    public function display()
+    public function display() : void
     {
         $prev_artist = null;
         $titles = [];
@@ -75,11 +75,13 @@ class TextFileReader implements Reader
         }
     }
 
-    private function displayDetail($artist, array $titles = [])
+    private function displayDetail($artist, array $titles = []) : void
     {
         printf('%s%s', $artist, PHP_EOL);
-        printf('-->%s%s',
-            implode(PHP_EOL."-->", $titles),
-            count($titles) > 0 ? PHP_EOL : null);
+        printf(
+            '-->%s%s',
+            implode(PHP_EOL . '-->', $titles),
+            count($titles) > 0 ? PHP_EOL : null
+        );
     }
 }

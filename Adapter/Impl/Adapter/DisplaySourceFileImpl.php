@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Adapter\Impl\Adapter;
 
 use DoYouPhp\PhpDesignPattern\Adapter\Impl\Target\DisplaySourceFile;
@@ -25,7 +28,7 @@ class DisplaySourceFileImpl implements DisplaySourceFile
     /**
      * 指定されたソースファイルをハイライト表示する
      */
-    public function display()
+    public function display() : void
     {
         $this->show_file->showHighlight();
     }

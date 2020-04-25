@@ -1,8 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Decorator\ConcreteDecorator;
 
-use DoYouPhp\PhpDesignPattern\Decorator\Decorator\TextDecorator;
 use DoYouPhp\PhpDesignPattern\Decorator\Component\Text;
+use DoYouPhp\PhpDesignPattern\Decorator\Decorator\TextDecorator;
 
 /**
  * TextDecoratorクラスの実装クラスです
@@ -25,7 +28,7 @@ class DoubleByteText extends TextDecorator
     public function getText()
     {
         $str = parent::getText();
-        $str = mb_convert_kana($str, "RANSKV");
+        $str = mb_convert_kana($str, 'RANSKV');
 
         return $str;
     }

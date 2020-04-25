@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\State;
 
 /**
@@ -8,6 +11,8 @@ namespace DoYouPhp\PhpDesignPattern\State;
 interface UserState
 {
     public function isAuthenticated();
+
     public function nextState();
+
     public function getMenu();
 }

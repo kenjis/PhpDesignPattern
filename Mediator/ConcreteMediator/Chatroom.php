@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Mediator\ConcreteMediator;
 
 use DoYouPhp\PhpDesignPattern\Mediator\ConcreteColleague\User;
@@ -8,18 +11,20 @@ class Chatroom
     /**
      * 管理するユーザー(Colleague)
      */
-    private $users = array();
-    public function login(User $user)
+    private $users = [];
+
+    public function login(User $user) : void
     {
         $user->setChatroom($this);
-        if (!array_key_exists($user->getName(), $this->users)) {
+        if (! array_key_exists($user->getName(), $this->users)) {
             $this->users[$user->getName()] = $user;
             printf('--> %sさんが入室しました%s', $user->getName(), PHP_EOL);
         }
     }
-    public function sendMessage($from, $to, $message)
+
+    public function sendMessage($from, $to, $message) : void
     {
-        /**
+        /*
          * メッセージのルーティング(誰から誰へ)をMediatorが管理する
          */
         if (array_key_exists($to, $this->users)) {

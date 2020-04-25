@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\AbstractFactory\ConcreteFactory;
 
 use DoYouPhp\PhpDesignPattern\AbstractFactory\AbstractFactory\DaoFactory;
@@ -11,6 +14,7 @@ class DbFactory implements DaoFactory
     {
         return new DbItemDao();
     }
+
     public function createOrderDao()
     {
         return new DbOrderDao($this->createItemDao());

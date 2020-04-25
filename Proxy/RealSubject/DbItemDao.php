@@ -1,14 +1,17 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Proxy\RealSubject;
 
-use DoYouPhp\PhpDesignPattern\Proxy\Subject\ItemDao;
 use DoYouPhp\PhpDesignPattern\Proxy\Model\Item;
+use DoYouPhp\PhpDesignPattern\Proxy\Subject\ItemDao;
 
 class DbItemDao implements ItemDao
 {
     public function findById($item_id)
     {
-        $fp = fopen(dirname(__DIR__).'/item_data.txt', 'r');
+        $fp = fopen(dirname(__DIR__) . '/item_data.txt', 'r');
 
         /**
          * ヘッダ行を抜く
@@ -25,6 +28,7 @@ class DbItemDao implements ItemDao
 
             if ($item_id === (int) $id) {
                 $item = new Item($id, $name);
+
                 break;
             }
         }

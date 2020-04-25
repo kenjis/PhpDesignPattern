@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Adapter;
 
 /**
@@ -8,8 +11,6 @@ class ShowFile
 {
     /**
      * 内容を表示するファイル名
-     *
-     * @access private
      */
     private $filename;
 
@@ -17,12 +18,13 @@ class ShowFile
      * コンストラクタ
      *
      * @param string ファイル名
+     *
      * @throws \Exception
      */
     public function __construct($filename)
     {
-        if (!is_readable($filename)) {
-            throw new \Exception('file "'.$filename.'" is not readable !');
+        if (! is_readable($filename)) {
+            throw new \Exception('file "' . $filename . '" is not readable !');
         }
         $this->filename = $filename;
     }
@@ -30,7 +32,7 @@ class ShowFile
     /**
      * プレーンテキストとして表示します
      */
-    public function showPlain()
+    public function showPlain() : void
     {
         echo file_get_contents($this->filename);
     }
@@ -38,7 +40,7 @@ class ShowFile
     /**
      * キーワードをハイライトして表示します
      */
-    public function showHighlight()
+    public function showHighlight() : void
     {
         highlight_file($this->filename);
     }

@@ -1,6 +1,8 @@
 <?php
-namespace DoYouPhp\PhpDesignPattern\Observer;
 
+declare(strict_types=1);
+
+namespace DoYouPhp\PhpDesignPattern\Observer;
 
 /**
  * ConcreteObserverクラスに相当する
@@ -8,19 +10,20 @@ namespace DoYouPhp\PhpDesignPattern\Observer;
 class PresentListener implements CartListener
 {
     const PRESENT_TARGET_ITEM = 'クッキーセット';
+
     const PRESENT_ITEM = 'プレゼント';
 
     public function __construct()
     {
     }
 
-    public function update(Cart $cart)
+    public function update(Cart $cart) : void
     {
         if ($cart->hasItem(self::PRESENT_TARGET_ITEM) &&
-            !$cart->hasItem(self::PRESENT_ITEM)) {
+            ! $cart->hasItem(self::PRESENT_ITEM)) {
             $cart->addItem(self::PRESENT_ITEM);
         }
-        if (!$cart->hasItem(self::PRESENT_TARGET_ITEM) &&
+        if (! $cart->hasItem(self::PRESENT_TARGET_ITEM) &&
             $cart->hasItem(self::PRESENT_ITEM)) {
             $cart->removeItem(self::PRESENT_ITEM);
         }

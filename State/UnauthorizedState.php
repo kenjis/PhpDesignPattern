@@ -1,9 +1,8 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\State;
-
-use DoYouPhp\PhpDesignPattern\State\UserState;
-use DoYouPhp\PhpDesignPattern\State\AuthorizedState;
-
 
 /**
  * ConcreteStateクラスに相当する
@@ -17,10 +16,20 @@ class UnauthorizedState implements UserState
     {
     }
 
+    /**
+     * このインスタンスの複製を許可しないようにする
+     *
+     * @throws \RuntimeException
+     */
+    final public function __clone()
+    {
+        throw new \RuntimeException('Clone is not allowed against ' . get_class($this));
+    }
+
     public static function getInstance()
     {
         if (self::$singleton === null) {
-            self::$singleton = new UnauthorizedState();
+            self::$singleton = new self();
         }
 
         return self::$singleton;
@@ -42,14 +51,5 @@ class UnauthorizedState implements UserState
         $menu = '<a href="?mode=state">ログイン</a>';
 
         return $menu;
-    }
-
-    /**
-     * このインスタンスの複製を許可しないようにする
-     * @throws \RuntimeException
-     */
-    final public function __clone()
-    {
-        throw new \RuntimeException('Clone is not allowed against '.get_class($this));
     }
 }

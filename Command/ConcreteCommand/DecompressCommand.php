@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Command\ConcreteCommand;
 
 use DoYouPhp\PhpDesignPattern\Command\Command\Command;
@@ -10,11 +13,13 @@ use DoYouPhp\PhpDesignPattern\Command\Receiver\File;
 class DecompressCommand implements Command
 {
     private $file;
+
     public function __construct(File $file)
     {
         $this->file = $file;
     }
-    public function execute()
+
+    public function execute() : void
     {
         $this->file->decompress();
     }

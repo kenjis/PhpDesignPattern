@@ -1,7 +1,10 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\ChainOfResponsibility;
 
-require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 use DoYouPhp\PhpDesignPattern\ChainOfResponsibility\ConcreteHandler\MaxLengthValidationHandler;
 use DoYouPhp\PhpDesignPattern\ChainOfResponsibility\ConcreteHandler\NotNullValidationHandler;
@@ -16,12 +19,14 @@ function validate($input, $type)
     $handler->setHandler(new MaxLengthValidationHandler(8));
 
     switch ($type) {
-    case 1:
-        $handler->setHandler(new ConcreteHandler\AlphabetValidationHandler());
-        break;
-    case 2:
-        $handler->setHandler(new ConcreteHandler\NumberValidationHandler());
-        break;
+        case 1:
+            $handler->setHandler(new ConcreteHandler\AlphabetValidationHandler());
+
+            break;
+        case 2:
+            $handler->setHandler(new ConcreteHandler\NumberValidationHandler());
+
+            break;
     }
 
     return $handler->validate($input);
@@ -30,9 +35,9 @@ function validate($input, $type)
 $result = validate('ChainOfResponsibility', 1);
 echo($result === false ? '検証できませんでした'
     : ((is_string($result) && $result !== '') ? $result : 'OK'))
-    .PHP_EOL;
+    . PHP_EOL;
 
 $result = validate('Chain of responsibility', 2);
 echo($result === false ? '検証できませんでした'
     : ((is_string($result) && $result !== '') ? $result : 'OK'))
-    .PHP_EOL;
+    . PHP_EOL;

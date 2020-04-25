@@ -1,13 +1,16 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Prototype;
 
-require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 use DoYouPhp\PhpDesignPattern\Prototype\Client\ItemManager;
 use DoYouPhp\PhpDesignPattern\Prototype\ConcretePrototype\DeepCopyItem;
 use DoYouPhp\PhpDesignPattern\Prototype\ConcretePrototype\ShallowCopyItem;
 
-function testCopy(ItemManager $manager, $item_code)
+function testCopy(ItemManager $manager, $item_code) : void
 {
     /**
      * 商品のインスタンスを2つ作成
@@ -15,7 +18,7 @@ function testCopy(ItemManager $manager, $item_code)
     $item1 = $manager->create($item_code);
     $item2 = $manager->create($item_code);
 
-    /**
+    /*
      * 1つだけコメントを削除
      */
     $item2->getDetail()->comment = 'コメントを書き換えました';

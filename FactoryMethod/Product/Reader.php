@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\FactoryMethod\Product;
 
 /**
@@ -7,5 +10,6 @@ namespace DoYouPhp\PhpDesignPattern\FactoryMethod\Product;
 interface Reader
 {
     public function read();
+
     public function display();
 }

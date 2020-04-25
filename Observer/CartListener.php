@@ -1,6 +1,8 @@
 <?php
-namespace DoYouPhp\PhpDesignPattern\Observer;
 
+declare(strict_types=1);
+
+namespace DoYouPhp\PhpDesignPattern\Observer;
 
 /**
  * Observerクラスに相当する

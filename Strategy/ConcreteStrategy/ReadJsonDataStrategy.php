@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Strategy\ConcreteStrategy;
 
 use DoYouPhp\PhpDesignPattern\Strategy\Strategy\ReadItemDataStrategy;
@@ -11,14 +14,16 @@ class ReadJsonDataStrategy extends ReadItemDataStrategy
 {
     /**
      * データファイルを読み込み、オブジェクトの配列で返す
+     *
      * @param string データファイル名
+     *
      * @return データオブジェクトの配列
      */
     protected function readData($filename)
     {
         $data = json_decode(file_get_contents($filename));
 
-        /**
+        /*
          * データの読み込み
          */
         foreach ($data as $line) {

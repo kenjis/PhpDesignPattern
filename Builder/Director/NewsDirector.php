@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Builder\Director;
 
 use DoYouPhp\PhpDesignPattern\Builder\Builder\NewsBuilder;

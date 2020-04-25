@@ -1,20 +1,25 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Iterator;
 
-require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
-use DoYouPhp\PhpDesignPattern\Iterator\Model\Employee;
 use DoYouPhp\PhpDesignPattern\Iterator\ConcreteAggregate\Employees;
 use DoYouPhp\PhpDesignPattern\Iterator\ConcreteIterator\SalesmanIterator;
+use DoYouPhp\PhpDesignPattern\Iterator\Model\Employee;
 
-function dumpWithForeach(\Iterator $iterator)
+function dumpWithForeach(\Iterator $iterator) : void
 {
     foreach ($iterator as $employee) {
-        printf('%s (%d, %s)%s',
-               $employee->getName(),
-               $employee->getAge(),
-               $employee->getJob(),
-               PHP_EOL);
+        printf(
+            '%s (%d, %s)%s',
+            $employee->getName(),
+            $employee->getAge(),
+            $employee->getJob(),
+            PHP_EOL
+        );
     }
 }
 
@@ -27,29 +32,31 @@ $employees->add(new Employee('KING', 58, 'PRESIDENT'));
 
 $iterator = $employees->getIterator();
 
-/**
+/*
  * Iteratorのメソッドを利用する
  */
-echo '■Iteratorのメソッドを利用する'.PHP_EOL;
+echo '■Iteratorのメソッドを利用する' . PHP_EOL;
 while ($iterator->valid()) {
     $employee = $iterator->current();
-    printf('%s (%d, %s)%s',
-           $employee->getName(),
-           $employee->getAge(),
-           $employee->getJob(),
-           PHP_EOL);
+    printf(
+        '%s (%d, %s)%s',
+        $employee->getName(),
+        $employee->getAge(),
+        $employee->getJob(),
+        PHP_EOL
+    );
 
     $iterator->next();
 }
 
-/**
+/*
  * foreach文を利用する
  */
-echo '■foreach文を利用する'.PHP_EOL;
+echo '■foreach文を利用する' . PHP_EOL;
 dumpWithForeach($iterator);
 
-/**
+/*
  * 異なるiteratorで要素を取得する
  */
-echo '■異なるiteratorで要素を取得する'.PHP_EOL;
+echo '■異なるiteratorで要素を取得する' . PHP_EOL;
 dumpWithForeach(new SalesmanIterator($iterator));

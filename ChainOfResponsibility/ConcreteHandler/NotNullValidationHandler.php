@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\ChainOfResponsibility\ConcreteHandler;
 
 use DoYouPhp\PhpDesignPattern\ChainOfResponsibility\Handler\ValidationHandler;
@@ -13,7 +16,7 @@ class NotNullValidationHandler extends ValidationHandler
      */
     protected function execValidation($input)
     {
-        return (is_string($input) && $input !== '');
+        return is_string($input) && $input !== '';
     }
 
     /**

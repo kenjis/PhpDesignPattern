@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Composite\Component;
 
 /**
@@ -29,13 +32,13 @@ abstract class OrganizationEntry
      * 子要素を追加する
      * ここでは抽象メソッドとして用意
      */
-    abstract public function add(OrganizationEntry $entry);
+    abstract public function add(self $entry);
 
     /**
      * 組織ツリーを表示する
      * サンプルでは、デフォルトの実装を用意
      */
-    public function dump()
+    public function dump() : void
     {
         printf('%s:%s%s', $this->code, $this->name, PHP_EOL);
     }

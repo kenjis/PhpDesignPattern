@@ -1,7 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\FactoryMethod\ConcreteCreator;
 
-use DoYouPhp\PhpDesignPattern\FactoryMethod\Producr\Reader;
 use DoYouPhp\PhpDesignPattern\FactoryMethod\ConcreteProduct\TextFileReader;
 use DoYouPhp\PhpDesignPattern\FactoryMethod\ConcreteProduct\XMLFileReader;
 
@@ -32,10 +34,10 @@ class ReaderFactory
             $r = new TextFileReader($filename);
 
             return $r;
-        } elseif ($posxml !== false) {
-            return new XMLFileReader($filename);
-        } else {
-            die('This filename is not supported : '.$filename);
         }
+        if ($posxml !== false) {
+            return new XMLFileReader($filename);
+        }
+        die('This filename is not supported : ' . $filename);
     }
 }

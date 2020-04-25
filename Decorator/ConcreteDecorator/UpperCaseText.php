@@ -1,8 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Decorator\ConcreteDecorator;
 
-use DoYouPhp\PhpDesignPattern\Decorator\Decorator\TextDecorator;
 use DoYouPhp\PhpDesignPattern\Decorator\Component\Text;
+use DoYouPhp\PhpDesignPattern\Decorator\Decorator\TextDecorator;
 
 /**
  * TextDecoratorクラスの実装クラスです

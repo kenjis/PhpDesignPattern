@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Decorator\Decorator;
 
 use DoYouPhp\PhpDesignPattern\Decorator\Component\Text;
@@ -32,7 +35,7 @@ abstract class TextDecorator implements Text
     /**
      * インスタンスに文字列をセットします
      */
-    public function setText($str)
+    public function setText($str) : void
     {
         $this->text->setText($str);
     }

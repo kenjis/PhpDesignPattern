@@ -1,8 +1,8 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\State;
-
-use DoYouPhp\PhpDesignPattern\State\UnauthorizedState;
-
 
 /**
  * Contextクラスに相当する
@@ -25,11 +25,11 @@ class User
     /**
      * 状態を切り替える
      */
-    public function switchState()
+    public function switchState() : void
     {
-        echo "状態遷移:".get_class($this->state)."→";
+        echo '状態遷移:' . get_class($this->state) . '→';
         $this->state = $this->state->nextState();
-        echo get_class($this->state)."<br>";
+        echo get_class($this->state) . '<br>';
         $this->resetCount();
     }
 
@@ -53,12 +53,12 @@ class User
         return $this->count;
     }
 
-    public function incrementCount()
+    public function incrementCount() : void
     {
         $this->count++;
     }
 
-    public function resetCount()
+    public function resetCount() : void
     {
         $this->count = 0;
     }

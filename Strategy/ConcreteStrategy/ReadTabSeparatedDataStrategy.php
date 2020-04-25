@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Strategy\ConcreteStrategy;
 
 use DoYouPhp\PhpDesignPattern\Strategy\Strategy\ReadItemDataStrategy;
@@ -11,7 +14,9 @@ class ReadTabSeparatedDataStrategy extends ReadItemDataStrategy
 {
     /**
      * データファイルを読み込み、オブジェクトの配列で返す
+     *
      * @param string データファイル名
+     *
      * @return データオブジェクトの配列
      */
     protected function readData($filename)
@@ -26,7 +31,7 @@ class ReadTabSeparatedDataStrategy extends ReadItemDataStrategy
         /**
          * データの読み込み
          */
-        $return_value = array();
+        $return_value = [];
         while (($buffer = fgets($fp, 4096)) !== false) {
             $data = explode("\t", trim($buffer));
             if (count($data) !== 4) {

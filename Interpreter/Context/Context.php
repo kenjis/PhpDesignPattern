@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Interpreter\Context;
 
 class Context
@@ -6,6 +9,7 @@ class Context
     private $commands;
     private $current_index = 0;
     private $max_index = 0;
+
     public function __construct($command)
     {
         $this->commands = preg_split('/ +/', trim($command));
@@ -21,7 +25,7 @@ class Context
 
     public function getCurrentCommand()
     {
-        if (!array_key_exists($this->current_index, $this->commands)) {
+        if (! array_key_exists($this->current_index, $this->commands)) {
             return;
         }
 

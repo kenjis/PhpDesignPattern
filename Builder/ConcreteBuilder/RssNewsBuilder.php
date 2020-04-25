@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Builder\ConcreteBuilder;
 
 use DoYouPhp\PhpDesignPattern\Builder\Builder\NewsBuilder;
@@ -16,21 +19,23 @@ class RssNewsBuilder implements NewsBuilder
          */
         $data = simplexml_load_file($url);
         if ($data === false) {
-            throw new \Exception('read data ['.
+            throw new \Exception('read data [' .
                                 htmlspecialchars($url, ENT_QUOTES)
-                                .'] failed !');
+                                . '] failed !');
         }
 
         /**
          * RSSのそれぞれの記事をNewsオブジェクトに変換し、
          * 「Newsオブジェクトの配列」として返す
          */
-        $list = array();
+        $list = [];
         foreach ($data->item as $item) {
             $dc = $item->children('http://purl.org/dc/elements/1.1/');
-            $list[] = new News($item->title,
-                               $item->link,
-                               $dc->date);
+            $list[] = new News(
+                $item->title,
+                $item->link,
+                $dc->date
+            );
         }
 
         return $list;

@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace DoYouPhp\PhpDesignPattern\Composite\Leaf;
 
 use DoYouPhp\PhpDesignPattern\Composite\Component\OrganizationEntry;
@@ -17,7 +20,7 @@ class Employee extends OrganizationEntry
      * 子要素を追加する
      * Leafクラスは子要素を持たないので、例外を発生させている
      */
-    public function add(OrganizationEntry $entry)
+    public function add(OrganizationEntry $entry) : void
     {
         throw new \Exception('method not allowed');
     }
