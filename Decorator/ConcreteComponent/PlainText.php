@@ -14,12 +14,12 @@ class PlainText implements Text
     /**
      * インスタンスが保持する文字列です
      */
-    private $textString;
+    private string $textString;
 
     /**
      * インスタンスが保持する文字列を返します
      */
-    public function getText()
+    public function getText() : string
     {
         return $this->textString;
     }

@@ -25,7 +25,7 @@ class DoubleByteText extends TextDecorator
      * 半角英字、数字、スペース、カタカナを全角に、
      * 濁点付きの文字を一文字に変換します
      */
-    public function getText()
+    public function getText() : string
     {
         $str = parent::getText();
         $str = mb_convert_kana($str, 'RANSKV');

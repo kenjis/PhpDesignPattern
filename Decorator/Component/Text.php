@@ -9,7 +9,7 @@ namespace DoYouPhp\PhpDesignPattern\Decorator\Component;
  */
 interface Text
 {
-    public function getText();
+    public function getText() : string;
 
-    public function setText($str);
+    public function setText(string $str) : void;
 }

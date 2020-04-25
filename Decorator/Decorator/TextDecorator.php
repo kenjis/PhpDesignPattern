@@ -14,7 +14,7 @@ abstract class TextDecorator implements Text
     /**
      * Text型の変数です
      */
-    private $text;
+    private Text $text;
 
     /**
      * インスタンスを生成します
@@ -27,7 +27,7 @@ abstract class TextDecorator implements Text
     /**
      * インスタンスが保持する文字列を返します
      */
-    public function getText()
+    public function getText() : string
     {
         return $this->text->getText();
     }
@@ -35,7 +35,7 @@ abstract class TextDecorator implements Text
     /**
      * インスタンスに文字列をセットします
      */
-    public function setText($str) : void
+    public function setText(string $str) : void
     {
         $this->text->setText($str);
     }

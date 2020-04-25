@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace DoYouPhp\PhpDesignPattern\Decorator;
 
-require dirname(__DIR__) . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use DoYouPhp\PhpDesignPattern\Decorator\ConcreteComponent\PlainText;
 use DoYouPhp\PhpDesignPattern\Decorator\ConcreteDecorator\DoubleByteText;
 use DoYouPhp\PhpDesignPattern\Decorator\ConcreteDecorator\UpperCaseText;
 
-function decorate($text, array $decorate = []) : void
+function decorate(string $text, array $decorate = []) : void
 {
     $text_object = new PlainText();
     $text_object->setText($text);

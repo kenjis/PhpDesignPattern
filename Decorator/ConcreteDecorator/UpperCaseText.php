@@ -23,7 +23,7 @@ class UpperCaseText extends TextDecorator
     /**
      * 半角小文字を半角大文字に変換して返します
      */
-    public function getText()
+    public function getText() : string
     {
         $str = parent::getText();
         $str = mb_strtoupper($str);
