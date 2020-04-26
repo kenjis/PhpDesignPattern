@@ -1,0 +1,67 @@
+@startuml
+package "Decorator Pattern" #DDDDDD {
+  class Component {
+    Operation()
+  }
+
+  class ConcreteComponent {
+    Operation()
+  }
+
+  class Decorator {
+    Operation()
+  }
+
+  Component <|-- ConcreteComponent
+  Component <|-- Decorator
+
+  Decorator o-- Component
+
+  class ConcreteDecoratorA {
+    addedState
+    Operation()
+  }
+
+  class ConcreteDecoratorB {
+    Operation()
+    AddedBehavier()
+  }
+
+  Decorator <|-- ConcreteDecoratorA
+  Decorator <|-- ConcreteDecoratorB
+}
+
+package "Sample" {
+  interface Text {
+    +getText()
+    +setText()
+  }
+
+  class PlainText {
+    +getText()
+    +setText()
+  }
+
+  class TextDecorator {
+    +getText()
+    +setText()
+  }
+
+  Text <|-- PlainText
+  Text <|-- TextDecorator
+
+  TextDecorator o-- Text
+
+  class DoubleByteText {
+    +getText()
+  }
+
+  class UpperCaseText {
+    +getText()
+  }
+
+  TextDecorator <|-- DoubleByteText
+  TextDecorator <|-- UpperCaseText
+}
+
+@enduml
