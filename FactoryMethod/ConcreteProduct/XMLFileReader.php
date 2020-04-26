@@ -27,7 +27,7 @@ class XMLFileReader implements Reader
     /**
      * コンストラクタ
      *
-     * @param string ファイル名
+     * @param string $filename ファイル名
      *
      * @throws \Exception
      */
