@@ -9,7 +9,7 @@ namespace DoYouPhp\PhpDesignPattern\FactoryMethod\Product;
  */
 interface Reader
 {
-    public function read();
+    public function read() : void;
 
-    public function display();
+    public function display() : void;
 }

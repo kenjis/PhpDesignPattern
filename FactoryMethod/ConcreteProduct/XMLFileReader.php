@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DoYouPhp\PhpDesignPattern\FactoryMethod\ConcreteProduct;
 
 use DoYouPhp\PhpDesignPattern\FactoryMethod\Product\Reader;
+use SimpleXMLElement;
 
 /**
  * XMLファイルの読み込みを行うクラス
@@ -14,10 +15,12 @@ class XMLFileReader implements Reader
     /**
      * 内容を表示するファイル名
      */
-    private $filename;
+    private string $filename;
 
     /**
      * データを扱うハンドラ名
+     *
+     * @var SimpleXMLElement
      */
     private $handler;
 
@@ -28,7 +31,7 @@ class XMLFileReader implements Reader
      *
      * @throws \Exception
      */
-    public function __construct($filename)
+    public function __construct(string $filename)
     {
         if (! is_readable($filename)) {
             throw new \Exception('file ' . $filename . ' is not readable !');

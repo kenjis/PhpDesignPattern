@@ -14,10 +14,12 @@ class TextFileReader implements Reader
     /**
      * 内容を表示するファイル名
      */
-    private $filename;
+    private string $filename;
 
     /**
      * データを扱うハンドラ名
+     *
+     * @var resource
      */
     private $handler;
 
@@ -28,7 +30,7 @@ class TextFileReader implements Reader
      *
      * @throws \Exception
      */
-    public function __construct($filename)
+    public function __construct(string $filename)
     {
         if (! is_readable($filename)) {
             throw new \Exception('file [' . $filename . '] is not readable !');
@@ -75,7 +77,7 @@ class TextFileReader implements Reader
         }
     }
 
-    private function displayDetail($artist, array $titles = []) : void
+    private function displayDetail(string $artist, array $titles = []) : void
     {
         printf('%s%s', $artist, PHP_EOL);
         printf(
