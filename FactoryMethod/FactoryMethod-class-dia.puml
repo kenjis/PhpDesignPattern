@@ -1,0 +1,52 @@
+@startuml
+package "FactoryMethod Pattern" #DDDDDD {
+  class Creator {
+    FactoryMethod(): Product
+  }
+
+  class ConcreteCreator {
+    FactoryMethod(): Product
+  }
+  note bottom: return new ConcreteProduct()
+
+  Creator <|-- ConcreteCreator
+
+  class Product
+  class ConcreteProduct
+
+  Product <|-- ConcreteProduct
+
+  Creator --> Product : creates >
+  ConcreteCreator --> ConcreteProduct : creates >
+}
+
+package "Sample" {
+  class ReaderFactory {
+    +create()
+    -createReader()
+  }
+
+  interface Reader {
+    +read()
+    +display()
+  }
+
+  ReaderFactory --> Reader
+
+  class TextFileReader {
+    +read()
+    +display()
+  }
+  class XMLFileReader {
+    +read()
+    +display()
+  }
+
+  Reader <|.. TextFileReader
+  Reader <|.. XMLFileReader
+
+  ReaderFactory --> TextFileReader : creates >
+  ReaderFactory --> XMLFileReader : creates >
+}
+
+@enduml
