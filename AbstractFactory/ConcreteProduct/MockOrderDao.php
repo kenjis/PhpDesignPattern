@@ -10,7 +10,7 @@ use DoYouPhp\PhpDesignPattern\AbstractFactory\Model\Order;
 
 class MockOrderDao implements OrderDao
 {
-    public function findById($order_id)
+    public function findById(string $order_id) : Order
     {
         $order = new Order('999');
         $order->addItem(new Item('99', 'ダミー商品'));

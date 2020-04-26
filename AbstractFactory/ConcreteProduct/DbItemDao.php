@@ -9,7 +9,7 @@ use DoYouPhp\PhpDesignPattern\AbstractFactory\Model\Item;
 
 class DbItemDao implements ItemDao
 {
-    private $items;
+    private array $items;
 
     public function __construct()
     {
@@ -35,10 +35,12 @@ class DbItemDao implements ItemDao
         fclose($fp);
     }
 
-    public function findById($item_id)
+    public function findById(string $item_id) : ?Item
     {
         if (array_key_exists($item_id, $this->items)) {
             return $this->items[$item_id];
         }
+
+        return null;
     }
 }

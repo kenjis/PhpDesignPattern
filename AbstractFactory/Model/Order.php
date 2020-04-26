@@ -9,10 +9,10 @@ namespace DoYouPhp\PhpDesignPattern\AbstractFactory\Model;
  */
 class Order
 {
-    private $id;
-    private $items;
+    private string $id;
+    private array $items;
 
-    public function __construct($id)
+    public function __construct(string $id)
     {
         $this->id = $id;
         $this->items = [];
@@ -28,12 +28,12 @@ class Order
         $this->items[$id]['amount']++;
     }
 
-    public function getItems()
+    public function getItems() : array
     {
         return $this->items;
     }
 
-    public function getId()
+    public function getId() : string
     {
         return $this->id;
     }

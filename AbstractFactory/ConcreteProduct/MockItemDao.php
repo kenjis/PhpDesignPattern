@@ -9,7 +9,7 @@ use DoYouPhp\PhpDesignPattern\AbstractFactory\Model\Item;
 
 class MockItemDao implements ItemDao
 {
-    public function findById($item_id)
+    public function findById(string $item_id) : Item
     {
         return new Item('99', 'ダミー商品');
     }

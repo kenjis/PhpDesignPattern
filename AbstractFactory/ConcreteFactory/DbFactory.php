@@ -10,12 +10,12 @@ use DoYouPhp\PhpDesignPattern\AbstractFactory\ConcreteProduct\DbOrderDao;
 
 class DbFactory implements DaoFactory
 {
-    public function createItemDao()
+    public function createItemDao() : DbItemDao
     {
         return new DbItemDao();
     }
 
-    public function createOrderDao()
+    public function createOrderDao() : DbOrderDao
     {
         return new DbOrderDao($this->createItemDao());
     }

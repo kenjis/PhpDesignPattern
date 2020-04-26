@@ -10,12 +10,12 @@ use DoYouPhp\PhpDesignPattern\AbstractFactory\ConcreteProduct\MockOrderDao;
 
 class MockFactory implements DaoFactory
 {
-    public function createItemDao()
+    public function createItemDao() : MockItemDao
     {
         return new MockItemDao();
     }
 
-    public function createOrderDao()
+    public function createOrderDao() : MockOrderDao
     {
         return new MockOrderDao();
     }

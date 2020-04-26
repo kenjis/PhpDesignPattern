@@ -14,12 +14,12 @@ function show(DaoFactory $factory) : void
 {
     $item_id = 1;
     $item_dao = $factory->createItemDao();
-    $item = $item_dao->findById($item_id);
+    $item = $item_dao->findById((string) $item_id);
     printf('ID=%sの商品は「%s」です。%s', $item_id, $item->getName(), PHP_EOL);
 
     $order_id = 3;
     $order_dao = $factory->createOrderDao();
-    $order = $order_dao->findById($order_id);
+    $order = $order_dao->findById((string) $order_id);
     printf('ID=%sの注文情報は次の通りです。%s', $order_id, PHP_EOL);
     foreach ($order->getItems() as $item) {
         printf('%s%s', $item['object']->getName(), PHP_EOL);

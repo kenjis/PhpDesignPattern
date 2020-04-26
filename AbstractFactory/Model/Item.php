@@ -9,21 +9,21 @@ namespace DoYouPhp\PhpDesignPattern\AbstractFactory\Model;
  */
 class Item
 {
-    private $id;
-    private $name;
+    private string $id;
+    private string $name;
 
-    public function __construct($id, $name)
+    public function __construct(string $id, string $name)
     {
         $this->id = $id;
         $this->name = $name;
     }
 
-    public function getId()
+    public function getId() : string
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
