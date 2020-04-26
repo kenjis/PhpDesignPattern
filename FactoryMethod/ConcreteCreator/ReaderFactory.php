@@ -7,6 +7,7 @@ namespace DoYouPhp\PhpDesignPattern\FactoryMethod\ConcreteCreator;
 use DoYouPhp\PhpDesignPattern\FactoryMethod\ConcreteProduct\TextFileReader;
 use DoYouPhp\PhpDesignPattern\FactoryMethod\ConcreteProduct\XMLFileReader;
 use DoYouPhp\PhpDesignPattern\FactoryMethod\Product\Reader;
+use RuntimeException;
 
 /**
  * Readerクラスのインスタンス生成を行うクラス
@@ -39,6 +40,7 @@ class ReaderFactory
         if ($posxml !== false) {
             return new XMLFileReader($filename);
         }
-        die('This filename is not supported : ' . $filename);
+
+        throw new RuntimeException('This filename is not supported : ' . $filename);
     }
 }
