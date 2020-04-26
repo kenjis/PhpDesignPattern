@@ -22,8 +22,6 @@ class NewsDirector
 
     public function getNews()
     {
-        $news_list = $this->builder->parse($this->url);
-
-        return $news_list;
+        return $this->builder->parse($this->url);
     }
 }

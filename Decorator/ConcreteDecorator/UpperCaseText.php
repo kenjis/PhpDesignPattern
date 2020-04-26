@@ -26,8 +26,7 @@ class UpperCaseText extends TextDecorator
     public function getText() : string
     {
         $str = parent::getText();
-        $str = mb_strtoupper($str);
 
-        return $str;
+        return mb_strtoupper($str);
     }
 }

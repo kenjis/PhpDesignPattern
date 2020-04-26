@@ -32,8 +32,7 @@ class ItemManager
         if (! array_key_exists($item_code, $this->items)) {
             throw new \Exception('item_code [' . $item_code . '] not exists !');
         }
-        $cloned_item = $this->items[$item_code]->newInstance();
 
-        return $cloned_item;
+        return $this->items[$item_code]->newInstance();
     }
 }

@@ -48,8 +48,6 @@ class UnauthorizedState implements UserState
 
     public function getMenu()
     {
-        $menu = '<a href="?mode=state">ログイン</a>';
-
-        return $menu;
+        return '<a href="?mode=state">ログイン</a>';
     }
 }

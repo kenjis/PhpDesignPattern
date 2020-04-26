@@ -48,10 +48,8 @@ class AuthorizedState implements UserState
 
     public function getMenu()
     {
-        $menu = '<a href="?mode=inc">カウントアップ</a> | '
+        return '<a href="?mode=inc">カウントアップ</a> | '
               . '<a href="?mode=reset">リセット</a> | '
               . '<a href="?mode=state">ログアウト</a>';
-
-        return $menu;
     }
 }

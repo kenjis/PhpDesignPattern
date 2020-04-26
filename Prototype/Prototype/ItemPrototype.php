@@ -65,8 +65,6 @@ abstract class ItemPrototype
      */
     public function newInstance()
     {
-        $new_instance = clone $this;
-
-        return $new_instance;
+        return clone $this;
     }
 }

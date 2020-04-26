@@ -19,9 +19,7 @@ class ReaderFactory
      */
     public function create(string $filename) : Reader
     {
-        $reader = $this->createReader($filename);
-
-        return $reader;
+        return $this->createReader($filename);
     }
 
     /**
@@ -33,9 +31,7 @@ class ReaderFactory
         $posxml = stripos($filename, '.xml');
 
         if ($postxt !== false) {
-            $r = new TextFileReader($filename);
-
-            return $r;
+            return new TextFileReader($filename);
         }
         if ($posxml !== false) {
             return new XMLFileReader($filename);

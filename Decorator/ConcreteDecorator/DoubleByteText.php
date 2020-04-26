@@ -28,8 +28,7 @@ class DoubleByteText extends TextDecorator
     public function getText() : string
     {
         $str = parent::getText();
-        $str = mb_convert_kana($str, 'RANSKV');
 
-        return $str;
+        return mb_convert_kana($str, 'RANSKV');
     }
 }
