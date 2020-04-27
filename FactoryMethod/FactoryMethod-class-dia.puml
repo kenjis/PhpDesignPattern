@@ -1,11 +1,12 @@
 @startuml
+
 package "FactoryMethod Pattern" #DDDDDD {
   class Creator {
-    FactoryMethod(): Product
+    factoryMethod(): Product
   }
 
   class ConcreteCreator {
-    FactoryMethod(): Product
+    factoryMethod(): Product
   }
   note bottom: return new ConcreteProduct()
 

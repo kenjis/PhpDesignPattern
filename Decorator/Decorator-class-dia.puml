@@ -1,15 +1,16 @@
 @startuml
+
 package "Decorator Pattern" #DDDDDD {
   class Component {
-    Operation()
+    operation()
   }
 
   class ConcreteComponent {
-    Operation()
+    operation()
   }
 
   class Decorator {
-    Operation()
+    operation()
   }
 
   Component <|-- ConcreteComponent
@@ -19,12 +20,12 @@ package "Decorator Pattern" #DDDDDD {
 
   class ConcreteDecoratorA {
     addedState
-    Operation()
+    operation()
   }
 
   class ConcreteDecoratorB {
-    Operation()
-    AddedBehavier()
+    operation()
+    addedBehavier()
   }
 
   Decorator <|-- ConcreteDecoratorA
