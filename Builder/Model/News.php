@@ -9,28 +9,28 @@ namespace DoYouPhp\PhpDesignPattern\Builder\Model;
  */
 class News
 {
-    private $title;
-    private $url;
-    private $target_date;
+    private string $title;
+    private string $url;
+    private string $target_date;
 
-    public function __construct($title, $url, $target_date)
+    public function __construct(string $title, string $url, string $target_date)
     {
         $this->title = $title;
         $this->url = $url;
         $this->target_date = $target_date;
     }
 
-    public function getTitle()
+    public function getTitle() : string
     {
         return $this->title;
     }
 
-    public function getUrl()
+    public function getUrl() : string
     {
         return $this->url;
     }
 
-    public function getDate()
+    public function getDate() : string
     {
         return $this->target_date;
     }

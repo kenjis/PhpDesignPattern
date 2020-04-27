@@ -12,7 +12,12 @@ use DoYouPhp\PhpDesignPattern\Builder\Model\News;
  */
 class RssNewsBuilder implements NewsBuilder
 {
-    public function parse($url)
+    /**
+     * @throws \Exception
+     *
+     * @return News[]
+     */
+    public function parse(string $url) : array
     {
         /**
          * RSSファイルを読み込み、SimpleXMLで扱えるようにする
@@ -32,9 +37,9 @@ class RssNewsBuilder implements NewsBuilder
         foreach ($data->item as $item) {
             $dc = $item->children('http://purl.org/dc/elements/1.1/');
             $list[] = new News(
-                $item->title,
-                $item->link,
-                $dc->date
+                (string) $item->title,
+                (string) $item->link,
+                (string) $dc->date
             );
         }
 

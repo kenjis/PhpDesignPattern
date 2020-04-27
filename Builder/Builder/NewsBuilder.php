@@ -9,5 +9,5 @@ namespace DoYouPhp\PhpDesignPattern\Builder\Builder;
  */
 interface NewsBuilder
 {
-    public function parse($data);
+    public function parse(string $data) : array;
 }
