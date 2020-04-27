@@ -13,7 +13,7 @@ class DbItemDao implements ItemDao
 
     public function __construct()
     {
-        $fp = fopen(dirname(__DIR__) . '/item_data.txt', 'r');
+        $fp = fopen(__DIR__ . '/../item_data.txt', 'r');
 
         /**
          * ヘッダ行を抜く

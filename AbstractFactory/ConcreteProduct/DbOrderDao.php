@@ -14,7 +14,7 @@ class DbOrderDao implements OrderDao
 
     public function __construct(ItemDao $item_dao)
     {
-        $fp = fopen(dirname(__DIR__) . '/order_data.txt', 'r');
+        $fp = fopen(__DIR__ . '/../order_data.txt', 'r');
 
         /**
          * ヘッダ行を抜く
