@@ -10,7 +10,7 @@ use DoYouPhp\PhpDesignPattern\AbstractFactory\Model\Order;
 
 class DbOrderDao implements OrderDao
 {
-    private $orders;
+    private array $orders;
 
     public function __construct(ItemDao $item_dao)
     {
