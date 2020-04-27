@@ -1,0 +1,91 @@
+@startuml
+
+package "AbstractFactory Pattern" #DDDDDD {
+  class AbstractFactory {
+    createProductA()
+    createProductB()
+  }
+
+  class ConcreteFactory1 {
+    createProductA()
+    createProductB()
+  }
+
+  class ConcreteFactory2 {
+    createProductA()
+    createProductB()
+  }
+
+  AbstractFactory <|-- ConcreteFactory1
+  AbstractFactory <|-- ConcreteFactory2
+
+  class AbstractProductA
+  class ConcreteProductA1
+  class ConcreteProductA2
+
+  AbstractProductA <|-- ConcreteProductA1
+  AbstractProductA <|-- ConcreteProductA2
+
+  class AbstractProductB
+  class ConcreteProductB1
+  class ConcreteProductB2
+
+  AbstractProductB <|-- ConcreteProductB1
+  AbstractProductB <|-- ConcreteProductB2
+
+  ConcreteFactory1 ..> ConcreteProductA1
+  ConcreteFactory1 ..> ConcreteProductB1
+
+  ConcreteFactory2 ..> ConcreteProductA2
+  ConcreteFactory2 ..> ConcreteProductB2
+
+  class Client
+
+  Client --> AbstractFactory
+  Client --> AbstractProductA
+  Client --> AbstractProductB
+}
+
+package "Sample" {
+  interface DaoFactory {
+    createItemDao(): ItemDao
+    createOrderDao(): OrderDao
+  }
+  class DbFactory
+  class MockFactroy
+
+  DaoFactory <|.. DbFactory
+  DaoFactory <|.. MockFactroy
+
+  interface ItemDao {
+    findById(): Item
+  }
+  class DbItemDao
+  class MockItemDao
+
+  ItemDao <|.. DbItemDao
+  ItemDao <|.. MockItemDao
+
+  interface OrderDao {
+    findById(): Order
+  }
+  class DbOrderDao
+  class MockOrderDao
+
+  OrderDao <|.. DbOrderDao
+  OrderDao <|.. MockOrderDao
+
+  class ClientA
+
+  ClientA --> DaoFactory
+  ClientA --> ItemDao
+  ClientA --> OrderDao
+
+  DbFactory --> DbItemDao : creates >
+  DbFactory --> DbOrderDao : creates >
+
+  MockFactroy --> MockItemDao : creates >
+  MockFactroy --> MockOrderDao : creates >
+}
+
+@enduml
