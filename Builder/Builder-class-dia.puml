@@ -1,0 +1,48 @@
+@startuml
+
+package "Builder Pattern" #DDDDDD {
+  class Director {
+    construct()
+  }
+
+  class Builder {
+    buildPart()
+  }
+
+  Director o-- Builder
+
+  class ConcreteBuilder {
+    buildPart()
+    getResult()
+  }
+
+  Builder <|-- ConcreteBuilder
+
+  class Client
+
+  Client --> Director
+}
+
+package "Sample" {
+  class NewsDirector {
+    +getNews()
+  }
+
+  interface NewsBuilder {
+    +parse()
+  }
+
+  NewsDirector o-- NewsBuilder
+
+  class RssNewsBuilder{
+    +parse()
+  }
+
+  NewsBuilder <|.. RssNewsBuilder
+
+  class client
+
+  client --> NewsDirector
+}
+
+@enduml
