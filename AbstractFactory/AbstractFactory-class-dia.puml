@@ -75,11 +75,11 @@ package "Sample" {
   OrderDao <|.. DbOrderDao
   OrderDao <|.. MockOrderDao
 
-  class ClientA
+  class client
 
-  ClientA --> DaoFactory
-  ClientA --> ItemDao
-  ClientA --> OrderDao
+  client --> DaoFactory
+  client --> ItemDao
+  client --> OrderDao
 
   DbFactory --> DbItemDao : creates >
   DbFactory --> DbOrderDao : creates >
