@@ -8,7 +8,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use DoYouPhp\PhpDesignPattern\FactoryMethod\ConcreteCreator\ReaderFactory;
 
-function show($filename) : void
+function show(string $filename) : void
 {
     echo $filename . PHP_EOL;
 
