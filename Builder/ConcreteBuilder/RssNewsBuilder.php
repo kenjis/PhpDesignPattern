@@ -25,9 +25,9 @@ class RssNewsBuilder implements NewsBuilder
          */
         $data = simplexml_load_file($url);
         if ($data === false) {
-            throw new RuntimeException('read data [' .
-                                htmlspecialchars($url, ENT_QUOTES)
-                                . '] failed !');
+            throw new RuntimeException(
+                'read data [' . $url . '] failed !'
+            );
         }
 
         /**
