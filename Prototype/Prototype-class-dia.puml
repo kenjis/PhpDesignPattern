@@ -1,0 +1,54 @@
+@startuml
+
+package "Prototype Pattern" #DDDDDD {
+  class Prototype {
+    clone()
+  }
+
+  class ConcretePrototypeA {
+    clone()
+  }
+  note bottom: return copy of self
+
+  class ConcretePrototypeB {
+    clone()
+  }
+  note bottom: return copy of self
+
+  Prototype <|-- ConcretePrototypeA
+  Prototype <|-- ConcretePrototypeB
+
+  class Client {
+    operation()
+  }
+  note right: $clone_object = $prototype->clone();
+
+  Client --> Prototype : uses >
+}
+
+package "Sample" {
+  class ItemManager {
+    +registItem()
+    +create()
+  }
+
+  class ItemPrototype {
+    +newInstance()
+    #__clone()
+  }
+
+  ItemManager --> ItemPrototype : uses >
+
+  class DeepCopyItem {
+    #__clone()
+  }
+
+  class ShallowCopyItem {
+    #__clone()
+  }
+
+  ItemPrototype <|-- DeepCopyItem
+  ItemPrototype <|-- ShallowCopyItem
+}
+
+@enduml
