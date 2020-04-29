@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DoYouPhp\PhpDesignPattern\Prototype;
 
-require dirname(__DIR__) . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use DoYouPhp\PhpDesignPattern\Prototype\Client\ItemManager;
 use DoYouPhp\PhpDesignPattern\Prototype\ConcretePrototype\DeepCopyItem;
