@@ -6,7 +6,7 @@ package "FactoryMethod Pattern" #DDDDDD {
   }
 
   class ConcreteCreator {
-    factoryMethod(): Product
+    factoryMethod(): ConcreteProduct
   }
   note bottom: return new ConcreteProduct()
 
