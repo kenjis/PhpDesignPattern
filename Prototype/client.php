@@ -10,7 +10,7 @@ use DoYouPhp\PhpDesignPattern\Prototype\Client\ItemManager;
 use DoYouPhp\PhpDesignPattern\Prototype\ConcretePrototype\DeepCopyItem;
 use DoYouPhp\PhpDesignPattern\Prototype\ConcretePrototype\ShallowCopyItem;
 
-function testCopy(ItemManager $manager, $item_code) : void
+function testCopy(ItemManager $manager, string $item_code) : void
 {
     /**
      * 商品のインスタンスを2つ作成

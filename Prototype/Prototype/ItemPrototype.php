@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace DoYouPhp\PhpDesignPattern\Prototype\Prototype;
 
+use stdClass;
+
 /**
  * Prototypeクラスに相当する
  */
 abstract class ItemPrototype
 {
-    private $item_code;
-    private $item_name;
-    private $price;
-    private $detail;
+    private string $item_code;
+    private string $item_name;
+    private int $price;
+    private stdClass $detail;
 
-    public function __construct($code, $name, $price)
+    public function __construct(string $code, string $name, int $price)
     {
         $this->item_code = $code;
         $this->item_name = $name;
@@ -27,27 +29,27 @@ abstract class ItemPrototype
      */
     abstract protected function __clone();
 
-    public function getCode()
+    public function getCode() : string
     {
         return $this->item_code;
     }
 
-    public function getName()
+    public function getName() : string
     {
         return $this->item_name;
     }
 
-    public function getPrice()
+    public function getPrice() : int
     {
         return $this->price;
     }
 
-    public function setDetail(\stdClass $detail) : void
+    public function setDetail(stdClass $detail) : void
     {
         $this->detail = $detail;
     }
 
-    public function getDetail()
+    public function getDetail() : stdClass
     {
         return $this->detail;
     }
@@ -63,7 +65,7 @@ abstract class ItemPrototype
     /**
      * cloneキーワードを使って新しいインスタンスを作成する
      */
-    public function newInstance()
+    public function newInstance() : self
     {
         return clone $this;
     }

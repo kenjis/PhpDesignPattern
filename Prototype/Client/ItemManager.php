@@ -12,7 +12,10 @@ use DoYouPhp\PhpDesignPattern\Prototype\Prototype\ItemPrototype;
  */
 class ItemManager
 {
-    private $items;
+    /**
+     * @var ItemPrototype[]
+     */
+    private array $items;
 
     public function __construct()
     {
@@ -27,7 +30,7 @@ class ItemManager
     /**
      * Prototypeクラスのメソッドを使って、新しいインスタンスを作成
      */
-    public function create($item_code)
+    public function create(string $item_code)
     {
         if (! array_key_exists($item_code, $this->items)) {
             throw new \Exception('item_code [' . $item_code . '] not exists !');
