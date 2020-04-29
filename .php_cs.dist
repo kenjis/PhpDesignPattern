@@ -55,7 +55,7 @@ return \PhpCsFixer\Config::create()
         'indentation_type' => true,
         'is_null' => ['use_yoda_style' => false], // @Symfony:risky
         'linebreak_after_opening_tag' => true,
-//      'list_syntax' => true,
+        'list_syntax' => ['syntax' => 'short'],
 //      'logical_operators' => true,
         'lowercase_cast' => true, // @Symfony
         'lowercase_static_reference' => true, // @Symfony
