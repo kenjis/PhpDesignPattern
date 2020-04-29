@@ -60,7 +60,7 @@ class TextFileReader implements Reader
             if (count($data) !== 2) {
                 continue;
             }
-            list($artist, $title) = $data;
+            [$artist, $title] = $data;
             if ($prev_artist === null) {
                 $prev_artist = $artist;
             }

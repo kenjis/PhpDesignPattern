@@ -24,7 +24,7 @@ class DbItemDao implements ItemDao
             if (count($data) !== 2) {
                 continue;
             }
-            list($id, $name) = $data;
+            [$id, $name] = $data;
 
             if ($item_id === (int) $id) {
                 $item = new Item($id, $name);

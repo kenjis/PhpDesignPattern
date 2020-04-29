@@ -24,7 +24,7 @@ class ItemDao
             if (count($data) !== 3) {
                 continue;
             }
-            list($item_id, $item_name, $item_price) = $data;
+            [$item_id, $item_name, $item_price] = $data;
 
             $item = new Item($item_id, $item_name, $item_price);
             $this->items[$item->getId()] = $item;

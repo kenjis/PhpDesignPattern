@@ -27,7 +27,7 @@ class DbOrderDao implements OrderDao
             if (count($data) !== 2) {
                 continue;
             }
-            list($order_id, $item_ids) = $data;
+            [$order_id, $item_ids] = $data;
 
             $order = new Order($order_id);
             foreach (explode(',', $item_ids) as $item_id) {

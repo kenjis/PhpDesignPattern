@@ -73,7 +73,7 @@ class ItemFactory
             if (count($data) !== 3) {
                 continue;
             }
-            list($item_code, $item_name, $price) = $data;
+            [$item_code, $item_name, $price] = $data;
 
             $this->pool[$item_code] = new Item($item_code, $item_name, $price);
         }

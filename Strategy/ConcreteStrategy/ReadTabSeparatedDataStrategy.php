@@ -37,7 +37,7 @@ class ReadTabSeparatedDataStrategy extends ReadItemDataStrategy
             if (count($data) !== 4) {
                 continue;
             }
-            list($item_id, $item_name, $price, $release_date) = $data;
+            [$item_id, $item_name, $price, $release_date] = $data;
 
             /**
              * 戻り値のオブジェクトの作成
