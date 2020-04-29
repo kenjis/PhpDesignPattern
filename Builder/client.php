@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DoYouPhp\PhpDesignPattern\Builder;
 
-require dirname(__DIR__) . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use DoYouPhp\PhpDesignPattern\Builder\ConcreteBuilder\RssNewsBuilder;
 use DoYouPhp\PhpDesignPattern\Builder\Director\NewsDirector;
