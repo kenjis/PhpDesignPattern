@@ -6,6 +6,7 @@ namespace DoYouPhp\PhpDesignPattern\Builder\ConcreteBuilder;
 
 use DoYouPhp\PhpDesignPattern\Builder\Builder\NewsBuilder;
 use DoYouPhp\PhpDesignPattern\Builder\Model\News;
+use RuntimeException;
 
 /**
  * ConcreteBuilderクラスに相当する
@@ -13,7 +14,7 @@ use DoYouPhp\PhpDesignPattern\Builder\Model\News;
 class RssNewsBuilder implements NewsBuilder
 {
     /**
-     * @throws \Exception
+     * @throws RuntimeException
      *
      * @return News[]
      */
@@ -24,7 +25,7 @@ class RssNewsBuilder implements NewsBuilder
          */
         $data = simplexml_load_file($url);
         if ($data === false) {
-            throw new \Exception('read data [' .
+            throw new RuntimeException('read data [' .
                                 htmlspecialchars($url, ENT_QUOTES)
                                 . '] failed !');
         }
