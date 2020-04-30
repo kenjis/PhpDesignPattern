@@ -1,0 +1,68 @@
+@startuml
+
+package "Bridge Pattern" #DDDDDD {
+  class Abstraction {
+    -$implementor : Implementor
+    +operation()
+  }
+  note right: $implementor->operationImpl()
+
+  class RefinedAbstraction {
+    +anotherOperation()
+  }
+
+  Abstraction <|-- RefinedAbstraction
+
+  class Implementor {
+    +operationImpl()
+  }
+
+  class ConreteImplementor {
+    +operationImple()
+  }
+
+  Implementor <|-- ConreteImplementor
+
+  Abstraction o-- Implementor : aggrigate >
+
+  class Client
+
+  Client --> Abstraction : uses >
+}
+
+package "Sample" {
+  class Listing {
+    -$data_source : DataSource
+    +open() : void
+    +read() : string
+    +close() : void
+  }
+
+  class ExtendedListing {
+    +readWithEncode() : string
+  }
+
+  Listing <|-- ExtendedListing : extends
+
+  interface DataSource {
+    +open() : void
+    +read() : string
+    +close() : void
+  }
+
+  class FileDataSource {
+    +open() : void
+    +read() : string
+    +close() : void
+  }
+
+  DataSource <|.. FileDataSource : implements
+
+  Listing o-- DataSource : aggrigate >
+
+  class client
+
+  client --> Listing : uses >
+}
+
+@enduml
