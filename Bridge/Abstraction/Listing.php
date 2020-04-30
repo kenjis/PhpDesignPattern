@@ -8,7 +8,7 @@ use DoYouPhp\PhpDesignPattern\Bridge\Implementor\DataSource;
 
 class Listing
 {
-    private $data_source;
+    private DataSource $data_source;
 
     /**
      * コンストラクタ
@@ -31,7 +31,7 @@ class Listing
      *
      * @return array データの配列
      */
-    public function read()
+    public function read() : string
     {
         return $this->data_source->read();
     }

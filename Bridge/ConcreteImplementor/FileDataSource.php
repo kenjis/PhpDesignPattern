@@ -11,19 +11,21 @@ class FileDataSource implements DataSource
     /**
      * ソース名
      */
-    private $source_name;
+    private string $source_name;
 
     /**
      * ファイルハンドラ
+     *
+     * @var resource
      */
     private $handler;
 
     /**
      * コンストラクタ
      *
-     * @param $source_name ファイル名
+     * @param $source_name string ファイル名
      */
-    public function __construct($source_name)
+    public function __construct(string $source_name)
     {
         $this->source_name = $source_name;
     }
@@ -49,7 +51,7 @@ class FileDataSource implements DataSource
      *
      * @return string データ文字列
      */
-    public function read()
+    public function read() : string
     {
         $buffer = [];
         while (! feof($this->handler)) {

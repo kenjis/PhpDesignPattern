@@ -10,9 +10,9 @@ namespace DoYouPhp\PhpDesignPattern\Bridge\Implementor;
  */
 interface DataSource
 {
-    public function open();
+    public function open() : void;
 
-    public function read();
+    public function read() : string;
 
-    public function close();
+    public function close() : void;
 }

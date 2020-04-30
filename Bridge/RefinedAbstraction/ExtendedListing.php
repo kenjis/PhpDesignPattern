@@ -23,9 +23,9 @@ class ExtendedListing extends Listing
     /**
      * データを読み込む際、大文字に変換する
      *
-     * @return 変換されたデータ
+     * @return string 変換されたデータ
      */
-    public function readWithEncode()
+    public function readWithEncode() : string
     {
         return strtoupper($this->read());
     }
