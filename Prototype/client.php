@@ -9,6 +9,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use DoYouPhp\PhpDesignPattern\Prototype\Client\ItemManager;
 use DoYouPhp\PhpDesignPattern\Prototype\ConcretePrototype\DeepCopyItem;
 use DoYouPhp\PhpDesignPattern\Prototype\ConcretePrototype\ShallowCopyItem;
+use stdClass;
 
 function testCopy(ItemManager $manager, string $item_code) : void
 {
@@ -40,13 +41,13 @@ $manager = new ItemManager();
  * 商品データを登録
  */
 $item = new DeepCopyItem('ABC0001', '限定Ｔシャツ', 3800);
-$detail = new \stdClass();
+$detail = new stdClass();
 $detail->comment = '商品Aのコメントです';
 $item->setDetail($detail);
 $manager->registItem($item);
 
 $item = new ShallowCopyItem('ABC0002', 'ぬいぐるみ', 1500);
-$detail = new \stdClass();
+$detail = new stdClass();
 $detail->comment = '商品Bのコメントです';
 $item->setDetail($detail);
 $manager->registItem($item);
