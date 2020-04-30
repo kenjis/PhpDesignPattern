@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DoYouPhp\PhpDesignPattern\Bridge\ConcreteImplementor;
 
 use DoYouPhp\PhpDesignPattern\Bridge\Implementor\DataSource;
+use RuntimeException;
 
 class FileDataSource implements DataSource
 {
@@ -33,16 +34,16 @@ class FileDataSource implements DataSource
     /**
      * データソースを開く
      *
-     * @throws \Exception
+     * @throws RuntimeException
      */
     public function open() : void
     {
         if (! is_readable($this->source_name)) {
-            throw new \Exception('データソースが見つかりません');
+            throw new RuntimeException('データソースが見つかりません');
         }
         $this->handler = fopen($this->source_name, 'r');
         if (! $this->handler) {
-            throw new \Exception('データソースのオープンに失敗しました');
+            throw new RuntimeException('データソースのオープンに失敗しました');
         }
     }
 
