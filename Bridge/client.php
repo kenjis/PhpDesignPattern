@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DoYouPhp\PhpDesignPattern\Bridge;
 
-require dirname(__DIR__) . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use DoYouPhp\PhpDesignPattern\Bridge\Abstraction\Listing;
 use DoYouPhp\PhpDesignPattern\Bridge\ConcreteImplementor\FileDataSource;
