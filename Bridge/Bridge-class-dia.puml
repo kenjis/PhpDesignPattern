@@ -17,11 +17,11 @@ package "Bridge Pattern" #DDDDDD {
     +operationImpl()
   }
 
-  class ConreteImplementor {
+  class ConcreteImplementor {
     +operationImple()
   }
 
-  Implementor <|-- ConreteImplementor
+  Implementor <|-- ConcreteImplementor
 
   Abstraction o-- Implementor : aggrigate >
 
