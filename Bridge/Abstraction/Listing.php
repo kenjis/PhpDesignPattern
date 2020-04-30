@@ -29,7 +29,7 @@ class Listing
     /**
      * データソースからデータを取得する
      *
-     * @return array データの配列
+     * @return string データ
      */
     public function read() : string
     {
